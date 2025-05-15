@@ -1,301 +1,136 @@
-StayWithYoussef 🏨
-
-Welcome to StayWithYoussef, a hotel booking platform where users can browse hotels, book rooms, and manage their stays with ease. Admins can manage hotels, rooms, and bookings through a dedicated dashboard. Built with a modern tech stack, this project aims to provide a seamless experience for travelers and administrators alike.
-
-📋 Project Overview
-
-StayWithYoussef allows users to:
-
-
-
-
-
-Sign up or log in to their accounts.
-
-
-
-Browse hotels by location, view amenities, and check room availability.
-
-
-
-Book rooms by selecting check-in/check-out dates and confirming details.
-
-
-
-Admins can manage hotels, rooms, and user bookings via an intuitive dashboard.
-
-Tech Stack
-
-
-
-
-
-Frontend: React, TypeScript, Tailwind CSS
-
-
-
-Backend: Node.js, Express.js, PostgreSQL
-
-
-
-Authentication: JWT (JSON Web Tokens)
-
-
-
-Database: PostgreSQL (with tables for users, hotels, rooms, tags, hotel_tags, bookings)
-
-🚀 Getting Started
-
-Follow these steps to set up and run the StayWithYoussef project on your local machine.
-
-Prerequisites
-
-Ensure you have the following installed:
-
-
-
-
-
-Node.js (v16 or higher): Download
-
-
-
-PostgreSQL (v12 or higher): Download
-
-
-
-Git: Download
-
-
-
-A code editor like VS Code.
-
-Project Structure
-
-
-
-
-
-backend/: Contains the Node.js/Express backend code, API routes, and database setup.
-
-
-
-frontend/: Contains the React/TypeScript frontend code, components, and hooks.
-
-1. Clone the Repository
-
-Clone the project to your local machine:
-
-git clone https://github.com/your-username/staywithyoussef.git
-cd staywithyoussef
-
-2. Set Up the Backend
-
-a. Navigate to the Backend Directory
-
-cd backend
-
-b. Install Dependencies
-
-Install the required Node.js packages:
-
-npm install
-
-c. Configure the Database
-
-
-
-
-
-Ensure PostgreSQL is running on your machine.
-
-
-my db.js is
-
-const { Pool } = require("pg");
-require("dotenv").config();
-
-const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-});
-
-module.exports = pool;
-
-
-
-
-Create a database named stay_with_youssef:
-
-psql -U postgres
+<div align="center">
+  <h1>🏨 StayWithYoussef</h1>
+  <p>A modern hotel booking platform</p>
+</div>
+
+<div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h2>📋 Project Overview</h2>
+  <p>Welcome to StayWithYoussef, a hotel booking platform where users can browse hotels, book rooms, and manage their stays with ease. Admins can manage hotels, rooms, and bookings through a dedicated dashboard. Built with a modern tech stack, this project aims to provide a seamless experience for travelers and administrators alike.</p>
+
+  <h3>Features</h3>
+  <ul>
+    <li>Sign up or log in to accounts</li>
+    <li>Browse hotels by location with amenities and availability</li>
+    <li>Book rooms with date selection</li>
+    <li>Admin dashboard for hotel and booking management</li>
+  </ul>
+</div>
+
+<div style="background-color: #e9f5ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h2>🛠 Tech Stack</h2>
+  <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+    <div>
+      <h4>Frontend</h4>
+      <ul>
+        <li>React</li>
+        <li>TypeScript</li>
+        <li>Tailwind CSS</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Backend</h4>
+      <ul>
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>PostgreSQL</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Authentication</h4>
+      <ul>
+        <li>JWT</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div style="background-color: #fff4e6; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h2>🚀 Getting Started</h2>
+  
+  <h3>Prerequisites</h3>
+  <ul>
+    <li>Node.js (v16+)</li>
+    <li>PostgreSQL (v12+)</li>
+    <li>Git</li>
+    <li>Code editor (VS Code recommended)</li>
+  </ul>
+
+  <h3>Project Structure</h3>
+  <pre>
+  staywithyoussef/
+  ├── backend/       # Node.js/Express backend
+  └── frontend/      # React frontend
+  </pre>
+</div>
+
+<div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h2>🔧 Installation</h2>
+  
+  <h3>1. Clone the Repository</h3>
+  <pre>git clone https://github.com/your-username/staywithyoussef.git
+cd staywithyoussef</pre>
+
+  <h3>2. Backend Setup</h3>
+  <h4>Install dependencies:</h4>
+  <pre>cd backend
+npm install</pre>
+
+  <h4>Database Configuration:</h4>
+  <p>Create PostgreSQL database:</p>
+  <pre>psql -U postgres
 CREATE DATABASE stay_with_youssef;
-\q
+\q</pre>
 
-
-
-Copy the .env.example file to create a .env file:
-
-cp .env.example .env
-
-
-my .env is like : 
-
-
-DB_HOST=localhost
+  <h4>Environment Variables:</h4>
+  <p>Configure <code>.env</code> file:</p>
+  <pre>DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=staywithyoussef
-DB_USER=
-DB_PASSWORD=
-JWT_SECRET=
-
-
-
-
-Edit the backend/.env file with your local configuration:
-
-DATABASE_URL=postgresql://postgres:your_password@localhost:5432/stay_with_youssef?schema=public
-JWT_SECRET=your_jwt_secret_key
-PORT=5000
-
-
-
-
-
-Replace your_password with your PostgreSQL password (e.g., the password you set for the postgres user).
-
-
-
-Replace your_jwt_secret_key with a secure secret key for JWT (e.g., generate a random string like mysecretkey123).
-
-
-
-Adjust the PORT if needed (default is 5000).
-
-d. Set Up the Database Schema and Seed Data
-
-
-
-
-
-Run the schema setup script to create tables:
-
-psql -U postgres -d stay_with_youssef -f db/schema.sql
-
-The schema.sql file creates tables for users, hotels, rooms, tags, hotel_tags, and bookings.
-
-
-
-(Optional) Seed the database with test data:
-
-psql -U postgres -d stay_with_youssef -f db/insert-data.sql
-
-This adds sample users, hotels, rooms, and bookings.
-
-e. Run the Backend
-
-Start the backend server:
-
-npm run dev
-
-The server will run on http://localhost:5000. You can test API endpoints like:
-
-
-
-
-
-GET /hotels: Fetch all hotels.
-
-
-
-POST /booking: Create a booking (requires authentication).
-
-3. Set Up the Frontend
-
-a. Navigate to the Frontend Directory
-
-cd ../frontend
-
-b. Install Dependencies
-
-Install the required packages:
-
-npm install
-
-c. Configure Environment Variables
-
-
-
-
-
-Copy the .env.example file to create a .env file:
-
-cp .env.example .env
-
-
-
-Edit the frontend/.env file to point to your backend API:
-
-REACT_APP_API_URL=http://localhost:5000
-
-
-
-
-
-Ensure the REACT_APP_API_URL matches the port your backend is running on (default is 5000).
-
-d. Run the Frontend
-
-Start the React development server:
-
-npm run dev
-
-The frontend will run on http://localhost:3000. Open this URL in your browser to access the app.
-
-4. Explore the App
-
-
-
-
-
-Regular User:
-
-
-
-
-
-Sign up or log in (e.g., use john.doe@example.com with password hashedpassword123 if using seed data).
-
-
-
-Browse hotels (e.g., Skyline Retreat, Sunset Resort).
-
-
-
-Select a hotel, choose a room, and book by entering dates and guest details.
-
-
-
-Admin:
-
-
-
-
-
-Log in as an admin (e.g., admin@example.com with password hashedpassword123).
-
-
-
-Navigate to /admin/dashboard to access the Admin Dashboard.
-
-
-
-
-project digram overview : 
-
-
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/7fcc519e-1bb6-4947-95a5-9ffba85c1d8b" alt="StayWithYoussef ERD" width="600"/>
+DB_USER=your_username
+DB_PASSWORD=your_password
+JWT_SECRET=your_secret_key</pre>
+
+  <h4>Run the backend:</h4>
+  <pre>npm run dev</pre>
+</div>
+
+<div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h3>3. Frontend Setup</h3>
+  <h4>Install dependencies:</h4>
+  <pre>cd ../frontend
+npm install</pre>
+
+  <h4>Configure environment:</h4>
+  <pre>REACT_APP_API_URL=http://localhost:5000</pre>
+
+  <h4>Run the frontend:</h4>
+  <pre>npm run dev</pre>
+</div>
+
+<div style="background-color: #f0fff0; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h2>📊 Database Schema</h2>
+  <div align="center">
+    <img src="https://github.com/user-attachments/assets/7fcc519e-1bb6-4947-95a5-9ffba85c1d8b" alt="StayWithYoussef ERD" width="600"/>
+  </div>
+</div>
+
+<div style="background-color: #fff0f5; padding: 20px; border-radius: 8px;">
+  <h2>👨‍💻 Usage</h2>
+  <h3>Regular User</h3>
+  <ul>
+    <li>Sign up or log in</li>
+    <li>Browse hotels and rooms</li>
+    <li>Make bookings</li>
+  </ul>
+
+  <h3>Admin</h3>
+  <ul>
+    <li>Log in with admin credentials</li>
+    <li>Access dashboard at <code>/admin/dashboard</code></li>
+    <li>Manage hotels, rooms, and bookings</li>
+  </ul>
+</div>
+
+<div align="center" style="margin-top: 30px;">
+  <h3>Enjoy your stay with StayWithYoussef! 🏨</h3>
 </div>
