@@ -119,11 +119,7 @@ npm install</pre>
 
 ---
 
-<div style="background-color: #f0fff0; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-  <h2>📊 Database Schema</h2>
-  <div align="center">
-    <img src="https://github.com/user-attachments/assets/7fcc519e-1bb6-4947-95a5-9ffba85c1d8b" alt="StayWithYoussef ERD" width="600"/>
-  </div>
+
 
   <h3>Tables & Relationships</h3>
   <details>
@@ -234,3 +230,9 @@ CREATE TABLE bookings (
 <div align="center" style="margin-top: 30px;">
   <h3>Enjoy your stay with StayWithYoussef! 🏨</h3>
 </div>
+
+<div style="background-color: #f0fff0; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+  <h2>📊 Project overview </h2>
+  <div align="center">
+    <img src="https://github.com/user-attachments/assets/7fcc519e-1bb6-4947-95a5-9ffba85c1d8b" alt="StayWithYoussef ERD" width="600"/>
+  </div>
