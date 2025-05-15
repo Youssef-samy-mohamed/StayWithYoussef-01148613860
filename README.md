@@ -81,3 +81,237 @@ backend/: Contains the Node.js/Express backend code, API routes, and database se
 
 
 frontend/: Contains the React/TypeScript frontend code, components, and hooks.
+
+🚀 Getting Started
+
+Follow these steps to set up and run the StayWithYoussef project on your local machine.
+
+Prerequisites
+
+Ensure you have the following installed:
+
+
+
+
+
+Node.js (v16 or higher): Download
+
+
+
+PostgreSQL (v12 or higher): Download
+
+
+
+Git: Download
+
+
+
+A code editor like VS Code.
+
+Project Structure
+
+
+
+
+
+backend/: Contains the Node.js/Express backend code, API routes, and database setup.
+
+
+
+frontend/: Contains the React/TypeScript frontend code, components, and hooks.
+
+1. Clone the Repository
+
+Clone the project to your local machine:
+
+git clone https://github.com/your-username/staywithyoussef.git
+cd staywithyoussef
+
+2. Set Up the Backend
+
+a. Navigate to the Backend Directory
+
+cd backend
+
+b. Install Dependencies
+
+Install the required Node.js packages:
+
+npm install
+
+c. Configure the Database
+
+
+
+
+
+Ensure PostgreSQL is running on your machine.
+
+
+
+Create a database named stay_with_youssef:
+
+psql -U postgres
+CREATE DATABASE stay_with_youssef;
+\q
+
+
+
+Copy the .env.example file to create a .env file:
+
+cp .env.example .env
+
+this how my .env looks like :
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=staywithyoussef
+DB_USER=
+DB_PASSWORD=
+JWT_SECRET=
+
+
+
+Edit the backend/.env file with your local configuration:
+
+DATABASE_URL=postgresql://postgres:your_password@localhost:5432/stay_with_youssef?schema=public
+JWT_SECRET=your_jwt_secret_key
+PORT=5000
+
+
+
+
+
+Replace your_password with your PostgreSQL password (e.g., the password you set for the postgres user).
+
+
+
+Replace your_jwt_secret_key with a secure secret key for JWT (e.g., generate a random string like mysecretkey123).
+
+
+
+Adjust the PORT if needed (default is 5000).
+
+d. Set Up the Database Schema and Seed Data
+
+
+
+
+
+Run the schema setup script to create tables:
+
+psql -U postgres -d stay_with_youssef -f db/schema.sql
+
+The schema.sql file creates tables for users, hotels, rooms, tags, hotel_tags, and bookings.
+
+
+
+(Optional) Seed the database with test data:
+
+psql -U postgres -d stay_with_youssef -f db/insert-data.sql
+
+This adds sample users, hotels, rooms, and bookings.
+
+e. Run the Backend
+
+Start the backend server:
+
+npm run dev
+
+The server will run on http://localhost:5000. You can test API endpoints like:
+
+
+
+
+
+GET /hotels: Fetch all hotels.
+
+
+
+POST /booking: Create a booking (requires authentication).
+
+3. Set Up the Frontend
+
+a. Navigate to the Frontend Directory
+
+cd ../frontend
+
+b. Install Dependencies
+
+Install the required packages:
+
+npm install
+
+c. Configure Environment Variables
+
+
+
+
+
+Copy the .env.example file to create a .env file:
+
+cp .env.example .env
+
+
+
+Edit the frontend/.env file to point to your backend API:
+
+REACT_APP_API_URL=http://localhost:5000
+
+
+
+
+
+Ensure the REACT_APP_API_URL matches the port your backend is running on (default is 5000).
+
+d. Run the Frontend
+
+Start the React development server:
+
+npm run dev
+
+The frontend will run on http://localhost:3000. Open this URL in your browser to access the app.
+
+4. Explore the App
+
+
+
+
+
+Regular User:
+
+
+
+
+
+Sign up or log in (e.g., use john.doe@example.com with password hashedpassword123 if using seed data).
+
+
+
+Browse hotels (e.g., Skyline Retreat, Sunset Resort).
+
+
+
+Select a hotel, choose a room, and book by entering dates and guest details.
+
+
+
+Admin:
+
+
+
+
+
+Log in as an admin (e.g., admin@example.com with password hashedpassword123).
+
+
+
+Navigate to /admin/dashboard to access the Admin Dashboard.
+it is not allowed to reach by any user , u must be an admin
+Project over view :) 
+![staywithyoussef drawio (3)](https://github.com/user-attachments/assets/00b0ea6b-87b4-4ae7-8c6c-bfb9475ac7bc)
+
+📧 Contact
+
+For questions or feedback, reach out to the project maintainer at samyyoussef@gmail.com
+Happy booking with StayWithYoussef! 🏖️
+
