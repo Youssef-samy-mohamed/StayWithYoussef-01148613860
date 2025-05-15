@@ -292,3 +292,10 @@ Navigate to /admin/dashboard to access the Admin Dashboard.
 
 
 
+
+project digram overview : 
+
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/7fcc519e-1bb6-4947-95a5-9ffba85c1d8b" alt="StayWithYoussef ERD" width="600"/>
+</div>
