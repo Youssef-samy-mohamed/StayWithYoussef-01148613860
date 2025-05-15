@@ -125,7 +125,7 @@ npm install</pre>
   <details>
     <summary><strong>📝 SQL Schema</strong></summary>
     <pre>
--- Create users table
+ Create users table
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     firstname VARCHAR(50) NOT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE users (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create hotels table
+Create hotels table
 CREATE TABLE hotels (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE hotels (
     updatedat TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create rooms table
+Create rooms table
 CREATE TABLE rooms (
     id SERIAL PRIMARY KEY,
     hotelid INTEGER NOT NULL REFERENCES hotels(id) ON DELETE CASCADE,
@@ -166,20 +166,20 @@ CREATE TABLE rooms (
     available BOOLEAN NOT NULL DEFAULT TRUE
 );
 
--- Create tags table
+ Create tags table
 CREATE TABLE tags (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
--- Create hotel_tags table (junction table for hotels and tags)
+ Create hotel_tags table (junction table for hotels and tags)
 CREATE TABLE hotel_tags (
     hotelid INTEGER NOT NULL REFERENCES hotels(id) ON DELETE CASCADE,
     tagid INTEGER NOT NULL REFERENCES tags(id) ON DELETE CASCADE,
     PRIMARY KEY (hotelid, tagid)
 );
 
--- Create bookings table
+Create bookings table
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
