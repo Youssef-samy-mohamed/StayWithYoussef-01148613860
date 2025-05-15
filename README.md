@@ -1,317 +1,169 @@
 StayWithYoussef 🏨
+StayWithYoussef is a modern hotel booking platform that allows users to explore hotels, book rooms, and manage their stays seamlessly. It also features a powerful admin dashboard for managing hotels, rooms, and bookings.
 
-Welcome to StayWithYoussef, a hotel booking platform where users can browse hotels, book rooms, and manage their stays with ease. Admins can manage hotels, rooms, and bookings through a dedicated dashboard. Built with a modern tech stack, this project aims to provide a seamless experience for travelers and administrators alike.
+📋 Overview
+✨ Features
+For Users:
+📝 Sign up or log in
 
-📋 Project Overview
+🏨 Browse hotels by location
 
-StayWithYoussef allows users to:
+🛏️ View amenities and room availability
 
+📅 Book rooms with check-in/check-out dates
 
+For Admins:
+🏢 Manage hotels, rooms, and user bookings
 
+📊 Access a secure admin dashboard (/admin/dashboard)
+Note: Only accessible to authorized admins
 
-
-Sign up or log in to their accounts.
-
-
-
-Browse hotels by location, view amenities, and check room availability.
-
-
-
-Book rooms by selecting check-in/check-out dates and confirming details.
-
-
-
-Admins can manage hotels, rooms, and user bookings via an intuitive dashboard.
-
-Tech Stack
-
-
-
-
-
+🛠 Tech Stack
 Frontend: React, TypeScript, Tailwind CSS
 
+Backend: Node.js, Express.js
 
-
-Backend: Node.js, Express.js, PostgreSQL
-
-
+Database: PostgreSQL
 
 Authentication: JWT (JSON Web Tokens)
 
-
-
-Database: PostgreSQL (with tables for users, hotels, rooms, tags, hotel_tags, bookings)
-
 🚀 Getting Started
+✅ Prerequisites
+Ensure you have the following installed on your machine:
 
-Follow these steps to set up and run the StayWithYoussef project on your local machine.
+Node.js (v16+)
 
-Prerequisites
+PostgreSQL (v12+)
 
-Ensure you have the following installed:
+Git
 
+VS Code or your preferred code editor
 
-
-
-
-Node.js (v16 or higher): Download
-
-
-
-PostgreSQL (v12 or higher): Download
-
-
-
-Git: Download
-
-
-
-A code editor like VS Code.
-
-Project Structure
-
-
-
-
-
-backend/: Contains the Node.js/Express backend code, API routes, and database setup.
-
-
-
-frontend/: Contains the React/TypeScript frontend code, components, and hooks.
-
-🚀 Getting Started
-
-Follow these steps to set up and run the StayWithYoussef project on your local machine.
-
-Prerequisites
-
-Ensure you have the following installed:
-
-
-
-
-
-Node.js (v16 or higher): Download
-
-
-
-PostgreSQL (v12 or higher): Download
-
-
-
-Git: Download
-
-
-
-A code editor like VS Code.
-
-Project Structure
-
-
-
-
-
-backend/: Contains the Node.js/Express backend code, API routes, and database setup.
-
-
-
-frontend/: Contains the React/TypeScript frontend code, components, and hooks.
-
+📁 Project Structure
+bash
+نسخ
+تحرير
+staywithyoussef/
+├── backend/   # Express backend with DB and API routes
+└── frontend/  # React frontend with TypeScript and Tailwind CSS
+⚙️ Setup Instructions
 1. Clone the Repository
-
-Clone the project to your local machine:
-
+bash
+نسخ
+تحرير
 git clone https://github.com/your-username/staywithyoussef.git
 cd staywithyoussef
-
-2. Set Up the Backend
-
-a. Navigate to the Backend Directory
-
+2. Backend Setup
+bash
+نسخ
+تحرير
 cd backend
-
-b. Install Dependencies
-
-Install the required Node.js packages:
-
 npm install
+a. Configure PostgreSQL
+Start PostgreSQL and create the database:
 
-c. Configure the Database
-
-
-
-
-
-Ensure PostgreSQL is running on your machine.
-
-
-
-Create a database named stay_with_youssef:
-
+sql
+نسخ
+تحرير
 psql -U postgres
 CREATE DATABASE stay_with_youssef;
 \q
+b. Environment Variables
+Copy and configure the environment file:
 
-
-
-Copy the .env.example file to create a .env file:
-
+bash
+نسخ
+تحرير
 cp .env.example .env
+Update .env with your local configuration:
 
-this how my .env looks like :
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=staywithyoussef
-DB_USER=
-DB_PASSWORD=
-JWT_SECRET=
-
-
-
-Edit the backend/.env file with your local configuration:
-
+env
+نسخ
+تحرير
 DATABASE_URL=postgresql://postgres:your_password@localhost:5432/stay_with_youssef?schema=public
 JWT_SECRET=your_jwt_secret_key
 PORT=5000
+Replace your_password with your actual PostgreSQL password
+Replace your_jwt_secret_key with a secure random string
 
-
-
-
-
-Replace your_password with your PostgreSQL password (e.g., the password you set for the postgres user).
-
-
-
-Replace your_jwt_secret_key with a secure secret key for JWT (e.g., generate a random string like mysecretkey123).
-
-
-
-Adjust the PORT if needed (default is 5000).
-
-d. Set Up the Database Schema and Seed Data
-
-
-
-
-
-Run the schema setup script to create tables:
-
+c. Initialize Database Schema
+bash
+نسخ
+تحرير
 psql -U postgres -d stay_with_youssef -f db/schema.sql
+Optional: Add seed data
 
-The schema.sql file creates tables for users, hotels, rooms, tags, hotel_tags, and bookings.
-
-
-
-(Optional) Seed the database with test data:
-
+bash
+نسخ
+تحرير
 psql -U postgres -d stay_with_youssef -f db/insert-data.sql
-
-This adds sample users, hotels, rooms, and bookings.
-
-e. Run the Backend
-
-Start the backend server:
-
+d. Start Backend Server
+bash
+نسخ
+تحرير
 npm run dev
+Backend runs at: http://localhost:5000
 
-The server will run on http://localhost:5000. You can test API endpoints like:
-
-
-
-
-
-GET /hotels: Fetch all hotels.
-
-
-
-POST /booking: Create a booking (requires authentication).
-
-3. Set Up the Frontend
-
-a. Navigate to the Frontend Directory
-
+3. Frontend Setup
+bash
+نسخ
+تحرير
 cd ../frontend
-
-b. Install Dependencies
-
-Install the required packages:
-
 npm install
-
-c. Configure Environment Variables
-
-
-
-
-
-Copy the .env.example file to create a .env file:
-
+a. Configure Environment
+bash
+نسخ
+تحرير
 cp .env.example .env
+Edit .env:
 
-
-
-Edit the frontend/.env file to point to your backend API:
-
+env
+نسخ
+تحرير
 REACT_APP_API_URL=http://localhost:5000
-
-
-
-
-
-Ensure the REACT_APP_API_URL matches the port your backend is running on (default is 5000).
-
-d. Run the Frontend
-
-Start the React development server:
-
+b. Run Frontend
+bash
+نسخ
+تحرير
 npm run dev
+Frontend runs at: http://localhost:3000
 
-The frontend will run on http://localhost:3000. Open this URL in your browser to access the app.
+🧪 Explore the App
+👤 Regular Users:
+Sign up or log in (e.g., john.doe@example.com / hashedpassword123 from seed data)
 
-4. Explore the App
+Browse and filter hotels
 
+View hotel details and available rooms
 
+Book by selecting desired dates and guest info
 
+🛠 Admin Access:
+Log in as admin (e.g., admin@example.com / hashedpassword123)
 
+Navigate to http://localhost:3000/admin/dashboard
 
-Regular User:
+Protected route: Only authorized admins can access
 
+🗂️ Database Overview
+Users
 
+Hotels
 
+Rooms
 
+Tags
 
-Sign up or log in (e.g., use john.doe@example.com with password hashedpassword123 if using seed data).
+Hotel_Tags
 
+Bookings
 
+📊 Project Diagram
 
-Browse hotels (e.g., Skyline Retreat, Sunset Resort).
-
-
-
-Select a hotel, choose a room, and book by entering dates and guest details.
-
-
-
-Admin:
-
-
-
-
-
-Log in as an admin (e.g., admin@example.com with password hashedpassword123).
-
-
-
-Navigate to /admin/dashboard to access the Admin Dashboard.
-it is not allowed to reach by any user , u must be an admin
-Project over view :) 
-![staywithyoussef drawio (3)](https://github.com/user-attachments/assets/00b0ea6b-87b4-4ae7-8c6c-bfb9475ac7bc)
 
 📧 Contact
+For questions, suggestions, or contributions:
+📨 samyyoussef@gmail.com
 
-For questions or feedback, reach out to the project maintainer at samyyoussef@gmail.com
-Happy booking with StayWithYoussef! 🏖️
+Happy Booking with StayWithYoussef! 🏖️
 
