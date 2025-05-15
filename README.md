@@ -1,3 +1,4 @@
+StayWithYoussef 🏨
 
 Welcome to StayWithYoussef, a hotel booking platform where users can browse hotels, book rooms, and manage their stays with ease. Admins can manage hotels, rooms, and bookings through a dedicated dashboard. Built with a modern tech stack, this project aims to provide a seamless experience for travelers and administrators alike.
 
@@ -81,44 +82,6 @@ backend/: Contains the Node.js/Express backend code, API routes, and database se
 
 frontend/: Contains the React/TypeScript frontend code, components, and hooks.
 
-🚀 Getting Started
-
-Follow these steps to set up and run the StayWithYoussef project on your local machine.
-
-Prerequisites
-
-Ensure you have the following installed:
-
-
-
-
-
-Node.js (v16 or higher): Download
-
-
-
-PostgreSQL (v12 or higher): Download
-
-
-
-Git: Download
-
-
-
-A code editor like VS Code.
-
-Project Structure
-
-
-
-
-
-backend/: Contains the Node.js/Express backend code, API routes, and database setup.
-
-
-
-frontend/: Contains the React/TypeScript frontend code, components, and hooks.
-
 1. Clone the Repository
 
 Clone the project to your local machine:
@@ -147,6 +110,23 @@ c. Configure the Database
 Ensure PostgreSQL is running on your machine.
 
 
+my db.js is
+
+const { Pool } = require("pg");
+require("dotenv").config();
+
+const pool = new Pool({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+});
+
+module.exports = pool;
+
+
+
 
 Create a database named stay_with_youssef:
 
@@ -160,13 +140,17 @@ Copy the .env.example file to create a .env file:
 
 cp .env.example .env
 
-this how my .env looks like :
+
+my .env is like : 
+
+
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=staywithyoussef
 DB_USER=
 DB_PASSWORD=
 JWT_SECRET=
+
 
 
 
@@ -305,18 +289,6 @@ Log in as an admin (e.g., admin@example.com with password hashedpassword123).
 
 
 Navigate to /admin/dashboard to access the Admin Dashboard.
-it is not allowed to reach by any user , u must be an admin
 
 
 
-
-Project over view :) 
-
-
-
-![staywithyoussef drawio (3)](https://github.com/user-attachments/assets/00b0ea6b-87b4-4ae7-8c6c-bfb9475ac7bc)
-
-📧 Contact
-
-For questions or feedback, reach out to the project maintainer at samyyoussef@gmail.com
-Happy booking with StayWithYoussef! 🏖️
